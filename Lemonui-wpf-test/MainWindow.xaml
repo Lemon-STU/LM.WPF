@@ -1,0 +1,26 @@
+﻿<Window x:Class="Lemonui_wpf_test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        xmlns:ui="https://github.com/Lemon-STU"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="50" GridOptions.LineThickness="1" GridOptions.LineBrush="Black" GridOptions.Padding="5" GridOptions.CornerRadius="15" GridOptions.ShowBorder="True">
+
+        <!--<ui:MyWrapPanel/>-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        
+    </Grid>
+</Window>
