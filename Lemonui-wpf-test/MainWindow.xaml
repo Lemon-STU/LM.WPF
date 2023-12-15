@@ -7,20 +7,67 @@
         mc:Ignorable="d"
         xmlns:ui="https://github.com/Lemon-STU"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="50" GridOptions.LineThickness="1" GridOptions.LineBrush="Black" GridOptions.Padding="5" GridOptions.CornerRadius="15" GridOptions.ShowBorder="True">
+    <Window.Resources>
+        <StringToVisibilityConverter x:Key="stov"/>
+        <Style x:Key="mytext" TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border BorderThickness="{TemplateBinding Border.BorderThickness}"  BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" Name="border" SnapsToDevicePixels="True">
+                            <Grid>
+                                <TextBlock Visibility="Collapsed" Foreground="Red" x:Name="mask" Text="[password]"  VerticalAlignment="Center"  Opacity="0.5"/>
+                                <ScrollViewer  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Name="PART_ContentHost" Focusable="False" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="mask" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="UIElement.IsEnabled" Value="False">
+                                <Setter Property="UIElement.Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="UIElement.IsMouseOver" Value="True">
+                                <Setter Property="Border.BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                            </Trigger>
+                            <Trigger Property="UIElement.IsKeyboardFocused" Value="True">
+                                <Setter Property="Border.BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-        <!--<ui:MyWrapPanel/>-->
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Grid Margin="50">
 
-        
+        <TextBox TextBoxOption.MaskText="[password]" TextBoxOption.MaskOpacity="0.5" TextBoxOption.MaskColor="DarkBlue" HorizontalAlignment="Left" Width="200" Height="30"/>
+        <TextBox x:Name="text" Style="{StaticResource mytext}" FontSize="20" VerticalContentAlignment="Center" Text=""  ToolTip="input"  Width="500" HorizontalAlignment="Left" Height="60" Margin="168,137,0,0" VerticalAlignment="Top" />
+
+        <TextBox Visibility="Collapsed" ToolTip="hello,world" TextWrapping="Wrap" Margin="10" Height="69">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="false"/>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <VisualBrush AlignmentX="Left" AlignmentY="Top" Stretch="None">
+                                        <VisualBrush.Visual>
+                                            <TextBlock Text="hhh" Background="Transparent" TextWrapping="Wrap" Height="40"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </MultiTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
     </Grid>
 </Window>

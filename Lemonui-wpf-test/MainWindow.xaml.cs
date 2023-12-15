@@ -27,6 +27,8 @@ namespace Lemonui_wpf_test
             InitializeComponent();
             //this.Padding
             Color a = Colors.Blue;
+
+            
         }
     }
 }
