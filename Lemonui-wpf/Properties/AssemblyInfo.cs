@@ -56,5 +56,5 @@ using System.Windows.Markup;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: XmlnsDefinition("https://github.com/Lemon-STU", "Lemonui_wpf")]
-[assembly: XmlnsDefinition("https://github.com/Lemon-STU", "Lemonui_wpf.Controls")]
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Lemonui_wpf.Controls")]
 [assembly:XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Lemonui_wpf.Helper")]

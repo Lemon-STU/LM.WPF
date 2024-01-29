@@ -40,9 +40,9 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="50">
+    <Grid Background="Black">
 
-        <TextBox TextBoxOption.MaskText="[password]" TextBoxOption.MaskOpacity="0.5" TextBoxOption.MaskColor="DarkBlue" HorizontalAlignment="Left" Width="200" Height="30"/>
+        <!--<TextBox TextBoxOption.MaskText="[password]" TextBoxOption.MaskOpacity="0.5" TextBoxOption.MaskColor="DarkBlue" HorizontalAlignment="Left" Width="200" Height="30"/>
         <TextBox x:Name="text" Style="{StaticResource mytext}" FontSize="20" VerticalContentAlignment="Center" Text=""  ToolTip="input"  Width="500" HorizontalAlignment="Left" Height="60" Margin="168,137,0,0" VerticalAlignment="Top" />
 
         <TextBox Visibility="Collapsed" ToolTip="hello,world" TextWrapping="Wrap" Margin="10" Height="69">
@@ -67,7 +67,8 @@
                     </Style.Triggers>
                 </Style>
             </TextBox.Style>
-        </TextBox>
+        </TextBox>-->
+        <ui:CustomControl1/>
 
     </Grid>
 </Window>

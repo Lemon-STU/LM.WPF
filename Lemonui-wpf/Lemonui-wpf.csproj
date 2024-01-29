@@ -51,11 +51,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Resources\Styles\Controls\CircularProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Controls\MyWrapPanel.cs" />
+    <Compile Include="Controls\CircularProgress.cs" />
+    <Compile Include="Controls\UniformStackPanel.cs" />
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,7 +96,6 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Styles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

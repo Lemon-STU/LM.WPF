@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:control="clr-namespace:Lemonui_wpf.Controls"
+                    >
+    <LinearGradientBrush x:Key="arcColor" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="Red" Offset="0"/>
+        <GradientStop Color="Green" Offset="1"/>
+    </LinearGradientBrush>
+    <Style x:Key="{x:Type control:CircularProgress}" TargetType="{x:Type control:CircularProgress}">
+        <Setter Property="CircularColor" Value="#FEF200"/>
+        <Setter Property="CircularThickness" Value="5"/>
+        <Setter Property="CircularPadding" Value="20"/>
+        <Setter Property="CircularOrbitColor" Value="LightCoral"/>
+        <Setter Property="CircularOrbitThickness" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="control:CircularProgress">
+                    <Grid>
+                        <ContentPresenter/>
+                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Text="{Binding Progress,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=control:CircularProgress},StringFormat={}{0:P0}}" 
+                               Foreground="{TemplateBinding CircularColor}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="30"
+                                    ShadowDepth="2"
+                                    Direction="-90"
+                                    Color="{TemplateBinding CircularColor}" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
