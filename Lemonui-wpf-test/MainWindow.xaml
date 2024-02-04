@@ -6,32 +6,18 @@
         xmlns:local="clr-namespace:Lemonui_wpf_test"
         mc:Ignorable="d"
         xmlns:ui="https://github.com/Lemon-STU"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding ElementName=path,Path=StrokeDashOffset}" Height="450" Width="800">
     <Window.Resources>
-        <StringToVisibilityConverter x:Key="stov"/>
-        <Style x:Key="mytext" TargetType="TextBox">
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Style TargetType="MenuItem">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border BorderThickness="{TemplateBinding Border.BorderThickness}"  BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" Name="border" SnapsToDevicePixels="True">
-                            <Grid>
-                                <TextBlock Visibility="Collapsed" Foreground="Red" x:Name="mask" Text="[password]"  VerticalAlignment="Center"  Opacity="0.5"/>
-                                <ScrollViewer  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Name="PART_ContentHost" Focusable="False" />
-                            </Grid>
+                    <ControlTemplate TargetType="MenuItem">
+                        <Border x:Name="bor" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Padding="20,5"  Background="AliceBlue">
+                            <ContentPresenter Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="mask" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <Trigger Property="UIElement.IsEnabled" Value="False">
-                                <Setter Property="UIElement.Opacity" TargetName="border" Value="0.56"/>
-                            </Trigger>
-                            <Trigger Property="UIElement.IsMouseOver" Value="True">
-                                <Setter Property="Border.BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
-                            </Trigger>
-                            <Trigger Property="UIElement.IsKeyboardFocused" Value="True">
-                                <Setter Property="Border.BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bor" Property="Background" Value="Bisque"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -39,36 +25,90 @@
             </Setter>
         </Style>
     </Window.Resources>
+    <Window.ContextMenu>
+        <ContextMenu>
+            <ContextMenu.Template>
+                <ControlTemplate TargetType="ContextMenu">
+                    <Border BorderBrush="Red" BorderThickness="1" CornerRadius="15" ClipToBounds="True">
+                        <ItemsPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </ContextMenu.Template>
+            <MenuItem Header="File"/>
+            <MenuItem Header="Edit"/>
+            <MenuItem Header="View"/>
+            <MenuItem Header="Project"/>
+            <MenuItem Header="Debug"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid >
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <ContextMenu.Template>
+                    <ControlTemplate TargetType="ContextMenu">
+                        <Border BorderBrush="Red" BorderThickness="1" CornerRadius="15" ClipToBounds="True">
+                            <ItemsPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </ContextMenu.Template>
+                <MenuItem Header="File">
+                    <MenuItem.Template>
+                        <ControlTemplate TargetType="MenuItem">
+                            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="5" Height="50" Width="120" Background="AliceBlue">
+                                <ContentPresenter Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </MenuItem.Template>
+                </MenuItem>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <!--<Viewbox Stretch="Uniform">
+            <Path x:Name="path" Stroke="Red"  StrokeThickness="1"
+      Data="M510.364 188.323 578.278 407.062l16.092 40.232 43.331 0 191.571 0-157.451 119.294-34.331 26.011 13.169 42.598 55.84 192.321-160.369-120.373-34.7-23.381-35.336 22.408-161.906 125.448 56.987-194.391 13.927-43.22-36.193-27.422-157.454-119.293 191.567 0 43.329 0 16.093-40.23L510.364 188.323 z" >
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation x:Name="pathanimation" Duration="0:0:1"  To="0" Storyboard.TargetProperty="StrokeDashOffset" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Viewbox>-->
+        <ComboBox Height="30" Width="200" 
+                  ItemsSource="{Binding Items}">
 
-    <Grid Background="Black">
+        </ComboBox>
 
-        <!--<TextBox TextBoxOption.MaskText="[password]" TextBoxOption.MaskOpacity="0.5" TextBoxOption.MaskColor="DarkBlue" HorizontalAlignment="Left" Width="200" Height="30"/>
-        <TextBox x:Name="text" Style="{StaticResource mytext}" FontSize="20" VerticalContentAlignment="Center" Text=""  ToolTip="input"  Width="500" HorizontalAlignment="Left" Height="60" Margin="168,137,0,0" VerticalAlignment="Top" />
+        <Button HorizontalAlignment="Left" LostFocus="menu_LostFocus" FocusableChanged="menu_FocusableChanged" x:Name="menu" Width="90" Height="30" Content="Language" VerticalAlignment="Top"></Button>
+        <TextBox LostFocus="menu_LostFocus" FocusableChanged="searchbox_FocusableChanged" x:Name="searchbox" Width="90" Height="30"  VerticalAlignment="Top" TextChanged="searchbox_TextChanged"/>
+        <Popup x:Name="popup"  
+               Placement="Bottom" PlacementTarget="{Binding ElementName=searchbox}" StaysOpen="True"
+               PopupAnimation="Slide" AllowsTransparency="True"
+               >
+            
+            <Border Background="AliceBlue" BorderBrush="Red" BorderThickness="1" Width="200" Height="150" CornerRadius="15">
+                <ListBox x:Name="listbox">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </Popup>
 
-        <TextBox Visibility="Collapsed" ToolTip="hello,world" TextWrapping="Wrap" Margin="10" Height="69">
-            <TextBox.Style>
-                <Style TargetType="TextBox">
-                    <Style.Triggers>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsFocused" Value="false"/>
-                                <Condition Property="Text" Value=""/>
-                            </MultiTrigger.Conditions>
-                            <Setter Property="Background">
-                                <Setter.Value>
-                                    <VisualBrush AlignmentX="Left" AlignmentY="Top" Stretch="None">
-                                        <VisualBrush.Visual>
-                                            <TextBlock Text="hhh" Background="Transparent" TextWrapping="Wrap" Height="40"/>
-                                        </VisualBrush.Visual>
-                                    </VisualBrush>
-                                </Setter.Value>
-                            </Setter>
-                        </MultiTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>-->
-        <ui:CustomControl1/>
+        <local:SearchBox Width="200" Height="200" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Width="300" Height="300">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Border Background="Yellow" />
+            <local:MyPanel Grid.Row="1"  />
+        </Grid>
+        
     </Grid>
 </Window>

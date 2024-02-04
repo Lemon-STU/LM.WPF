@@ -1,0 +1,24 @@
+﻿<Window x:Class="Lemonui_wpf_test.UniformStackPanelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        Title="UniformStackPanelWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+           
+            <StackPanel Orientation="Horizontal">
+                <StackPanel></StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <local:UniformStackPanel Background="LightCyan"  Orientation="Horizontal" 
+                                  Radius="35" 
+                                 BorderBrush="Yellow" BorderThickness="2" HorizontalAlignment="Center">
+            <Rectangle Fill="Red" Width="120" Height="120"/>
+            <Rectangle Fill="Green" Width="120" Height="120"/>
+        </local:UniformStackPanel>
+    </Grid>
+</Window>

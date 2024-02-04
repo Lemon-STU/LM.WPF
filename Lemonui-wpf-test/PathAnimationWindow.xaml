@@ -1,0 +1,96 @@
+﻿<Window x:Class="Lemonui_wpf_test.PathAnimationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        Title="PathAnimationWindow" Height="650" Width="800">
+    <Window.Resources>
+        <PathGeometry x:Key="pathdata" Figures="M510.364 188.323 578.278 407.062l16.092 40.232 43.331 0 191.571 0-157.451 119.294-34.331 26.011 13.169 42.598 55.84 192.321-160.369-120.373-34.7-23.381-35.336 22.408-161.906 125.448 56.987-194.391 13.927-43.22-36.193-27.422-157.454-119.293 191.567 0 43.329 0 16.093-40.23L510.364 188.323 z"/>
+    </Window.Resources>
+    <Grid>
+
+
+        <Viewbox Stretch="Uniform" >
+            <Grid Margin="0,0,20,20">
+                <Path x:Name="path" Fill="LightCyan"  Stroke="#4E6B7C" StrokeThickness="1" 
+                        Data="{StaticResource pathdata}">
+                    <Path.Triggers>
+                        <EventTrigger RoutedEvent="Window.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation x:Name="pathanimation" Duration="0:0:30" To="0" Storyboard.TargetProperty="StrokeDashOffset" RepeatBehavior="Forever"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Path.Triggers>
+                </Path>
+
+                <Grid Width="20" Height="20" RenderTransformOrigin=".5,.5" HorizontalAlignment="Left" VerticalAlignment="Top"
+                      >
+                    <Ellipse Fill="Red" Width="20" Height="20"/>
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform  X="-20" Y="0"/>
+                            <MatrixTransform x:Name="translate"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                    <Grid.Triggers>
+                        <EventTrigger RoutedEvent="Window.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <MatrixAnimationUsingPath Storyboard.TargetName="translate" 
+                                    Storyboard.TargetProperty="Matrix" 
+                                    PathGeometry="{StaticResource pathdata}"  Duration="0:0:30" RepeatBehavior="Forever"
+                                    DoesRotateWithTangent="True"
+                                                              />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Grid.Triggers>
+                </Grid>
+                <!--<Path Fill="Yellow" StrokeThickness="1" Stroke="Yellow" RenderTransformOrigin=".5,.5" Margin="0,0,-5,-5">
+                    <Path.RenderTransform>
+                        <TranslateTransform X="0" Y="0"/>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        <GeometryGroup>
+                            --><!-- Describes an ellipse. --><!--
+                            <EllipseGeometry x:Name="MyAnimatedEllipseGeometry"
+                                Center="0,0" RadiusX="15" RadiusY="5" />
+                        </GeometryGroup>
+                        
+                    </Path.Data>
+                    <Path.Triggers>
+                        <EventTrigger RoutedEvent="Window.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <PointAnimationUsingPath Storyboard.TargetName="MyAnimatedEllipseGeometry"
+                                        Storyboard.TargetProperty="Center"  
+                                        PathGeometry="{StaticResource pathdata}"  Duration="0:0:8" RepeatBehavior="Forever"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Path.Triggers>
+                </Path>-->
+            </Grid>
+        </Viewbox>
+
+        <!--<Viewbox Stretch="Uniform">
+            <Path x:Name="path" Stroke="Red" Fill="LightCyan"  StrokeThickness="1"
+   Data="M510.364 188.323 578.278 407.062l16.092 40.232 43.331 0 191.571 0-157.451 119.294-34.331 26.011 13.169 42.598 55.84 192.321-160.369-120.373-34.7-23.381-35.336 22.408-161.906 125.448 56.987-194.391 13.927-43.22-36.193-27.422-157.454-119.293 191.567 0 43.329 0 16.093-40.23L510.364 188.323 z" >
+             <Path.Triggers>
+                 <EventTrigger RoutedEvent="Loaded">
+                     <BeginStoryboard>
+                         <Storyboard>
+                             <DoubleAnimation x:Name="pathanimation" Duration="0:0:10"  To="0" Storyboard.TargetProperty="StrokeDashOffset" RepeatBehavior="Forever"/>
+                         </Storyboard>
+                     </BeginStoryboard>
+                 </EventTrigger>
+             </Path.Triggers>
+         </Path>
+     </Viewbox>-->
+    </Grid>
+</Window>

@@ -4,5 +4,7 @@
     xmlns:local="clr-namespace:Lemonui_wpf">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/CircularProgress.xaml"/>
+        <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/CircularIndicator.xaml"/>
+        <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/DropDownButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

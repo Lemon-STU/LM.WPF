@@ -1,0 +1,28 @@
+﻿<Window x:Class="Lemonui_wpf_test.PathAnimationWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        Title="PathAnimationWindow2" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnAnimo" Click="btnAnimo_Click" Margin="0,0,10,0">开始</Button>
+            </WrapPanel>
+            <Grid Grid.Row="1">
+                <Canvas x:Name="cvsMain" Background="LightCyan">
+                    <Path  x:Name="path1"  Stroke="LightGreen" StrokeThickness="20" StrokeLineJoin="Round"></Path>
+                </Canvas>
+                <StackPanel VerticalAlignment="Center">
+                    <Button Content="Hello,wolrd" Width="150" Height="30"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

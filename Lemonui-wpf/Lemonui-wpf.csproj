@@ -51,7 +51,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Resources\Styles\Controls\CircularIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles\Controls\CircularProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\Controls\DropDownButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -59,13 +67,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Common\DrawingContextExtension.cs" />
+    <Compile Include="Common\RenderHelper.cs" />
+    <Compile Include="Controls\CircularIndicator.cs" />
     <Compile Include="Controls\CircularProgress.cs" />
+    <Compile Include="Controls\DropDownButton.cs" />
     <Compile Include="Controls\UniformStackPanel.cs" />
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\Gemometry\GeometryExtension.cs" />
     <Compile Include="Helper\TextBox\TextBoxOption.cs" />
     <Compile Include="Helper\VisibilityConverters\BoolToVisibilityConverter.cs" />
     <Compile Include="Helper\Grid\GridOptions.cs" />
@@ -94,7 +107,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
