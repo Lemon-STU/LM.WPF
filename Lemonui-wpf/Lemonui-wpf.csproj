@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Styles\Controls\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,6 +76,7 @@
     <Compile Include="Controls\CircularIndicator.cs" />
     <Compile Include="Controls\CircularProgress.cs" />
     <Compile Include="Controls\DropDownButton.cs" />
+    <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\UniformStackPanel.cs" />
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>

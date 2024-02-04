@@ -6,5 +6,6 @@
         <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/CircularProgress.xaml"/>
         <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/CircularIndicator.xaml"/>
         <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/DropDownButton.xaml"/>
+        <ResourceDictionary Source="/Lemonui-wpf;component/Resources/Styles/Controls/NumericUpDown.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
