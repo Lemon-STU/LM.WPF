@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,17 +25,26 @@ namespace Lemonui_wpf_test
         public PathAnimationWindow()
         {
             InitializeComponent();
-            var len= this.path.Data.GetLength()/this.path.StrokeThickness;
-            this.path.StrokeDashArray = new DoubleCollection { len};
-            this.pathanimation.From = len;
+            Rectangle ell=new Rectangle();
+            ell.Width = 60;
+            ell.Height = 30;
+            ell.Fill = Brushes.Red;
+            TranslateTransform translateTransform = new TranslateTransform();
+            ell.RenderTransform = translateTransform;
+            this.container.Children.Add(ell);
 
-            var namescope=NameScope.GetNameScope(this.path);
+            DoubleAnimation doubleAnimation = new DoubleAnimation();
+            doubleAnimation.From = 0;
+            doubleAnimation.To = 500;
+            doubleAnimation.Duration = TimeSpan.FromSeconds(2);
+            doubleAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            Storyboard sb = new Storyboard();
+            Storyboard.SetTarget(doubleAnimation, ell);
+            Storyboard.SetTargetProperty(doubleAnimation,new PropertyPath("(Rectangle.RenderTransform).(TranslateTransform.X)"));
+            sb.Children.Add(doubleAnimation);
+            sb.Begin(this);
 
-            //PointAnimationUsingPath
-            //DoubleAnimationUsingPath
-            //MatrixAnimationUsingPath
-
-           // MatrixAnimationUsingPath
+           
         }
     }
 }

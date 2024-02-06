@@ -68,6 +68,9 @@
     <Compile Include="PathAnimationWindow2.xaml.cs">
       <DependentUpon>PathAnimationWindow2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PathWindow.xaml.cs">
+      <DependentUpon>PathWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PopupWindow.xaml.cs">
       <DependentUpon>PopupWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PathAnimationWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PathWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

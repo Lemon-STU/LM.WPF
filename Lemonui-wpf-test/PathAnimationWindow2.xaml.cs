@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lemonui_wpf.Helper.Gemometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,15 +33,25 @@ namespace Lemonui_wpf_test
             var w= this.cvsMain.ActualWidth;
             var h = this.cvsMain.ActualHeight;
             var pw = this.path1.StrokeThickness / 2;
-            // sb.Append($"M{pw},{pw} ");
-            // sb.Append($"{w-pw},{pw} ");
-            // sb.Append($"{w-pw},{h-pw} ");
-            //// sb.Append($"{pw},{h-pw} ");
-            // sb.Append("");
+            //sb.Append($"M{pw},{pw} ");
+            //sb.Append($"{w - pw},{pw} ");
+            //sb.Append($"{w - pw},{h - pw} ");
+            //sb.Append($"{pw},{h-pw} ");
+            //sb.Append("z");
 
-            sb.Append($"M{pw},{h-pw} ");
-            sb.Append($"{w-pw},{h-pw} ");
-            sb.Append($"{w-pw},{pw} ");
+            var margin = (w - 100) / 2;
+            var vmargin = (h) / 2;
+            sb.Append($"M0,{vmargin} ");
+            sb.Append($"h{margin} ");
+            sb.Append($"A50,50 0 1 1 {margin + 100},{vmargin} ");
+            sb.Append($"A50,50 0 0 1 {margin},{vmargin} ");
+            sb.Append($"A50,50 0 0 1 {margin+100},{vmargin} ");
+            sb.Append($"L{margin + 100},{vmargin} ");
+            sb.Append($"h{margin} ");
+
+            //sb.Append($"M{pw},{h-pw} ");
+            //sb.Append($"{w-pw},{h-pw} ");
+            //sb.Append($"{w-pw},{pw} ");
             this.path1.Data=Geometry.Parse(sb.ToString());
 
             AnimationByPath(cvsMain, path1, path1.StrokeThickness,5);
@@ -56,8 +67,10 @@ namespace Lemonui_wpf_test
         Storyboard story = new Storyboard();
         MatrixTransform matrix = new MatrixTransform();
         TransformGroup groups = new TransformGroup();
-        Polygon target = new Polygon();
+        //Polygon target = new Polygon();
+        Ellipse target=new Ellipse();
         MatrixAnimationUsingPath matrixAnimation = new MatrixAnimationUsingPath();
+        DoubleAnimation lineAnimation = new DoubleAnimation();
         /// <summary>
         /// 路径动画
         /// </summary>
@@ -67,17 +80,19 @@ namespace Lemonui_wpf_test
         /// <param name="duration">时间</param>
         private void AnimationByPath(Canvas cvs, Path path, double targetWidth, int duration = 5)
         {
+            targetWidth = 10;
             #region 创建动画对象                   
             if(cvs.Children.Count ==1 ) {
-                target.Points = new PointCollection()
-             {
-                 new Point(0,0),
-                 new Point(targetWidth/2,0),
-                 new Point(targetWidth,targetWidth/2),
-                 new Point(targetWidth/2,targetWidth),
-                 new Point(0,targetWidth),
-                 new Point(targetWidth/2,targetWidth/2)
-             };
+             //   target.Points = new PointCollection()
+             //{
+             //    new Point(0,0),
+             //    new Point(targetWidth/2,0),
+             //    new Point(targetWidth,targetWidth/2),
+             //    new Point(targetWidth/2,targetWidth),
+             //    new Point(0,targetWidth),
+             //    new Point(targetWidth/2,targetWidth/2)
+             //};
+             
                 target.Width = targetWidth;
                 target.Height = targetWidth;
                 target.Fill = new SolidColorBrush(Colors.Orange);
@@ -93,7 +108,6 @@ namespace Lemonui_wpf_test
 
                 story.Children.Add(matrixAnimation);
                 Storyboard.SetTargetName(matrixAnimation, registname);
-
                 Storyboard.SetTargetProperty(matrixAnimation, new PropertyPath(MatrixTransform.MatrixProperty));
 
                 story.FillBehavior = FillBehavior.Stop;
@@ -101,11 +115,24 @@ namespace Lemonui_wpf_test
                 matrixAnimation.Duration = new Duration(TimeSpan.FromSeconds(duration));
                 matrixAnimation.DoesRotateWithTangent = true;//跟随路径旋转
                 matrixAnimation.RepeatBehavior = RepeatBehavior.Forever;//循环
-            }            
+
+                lineAnimation.Duration= new Duration(TimeSpan.FromSeconds(duration));
+                lineAnimation.RepeatBehavior=RepeatBehavior.Forever;
+                lineAnimation.To = 0;
+                //var lineAnimationName = "line" + Guid.NewGuid().ToString().Replace("-","");
+                Storyboard.SetTargetName(lineAnimation,"path1");
+                Storyboard.SetTargetProperty(lineAnimation,new PropertyPath(Path.StrokeDashOffsetProperty));
+
+                story.Children.Add(lineAnimation);
+            }
             #endregion
-                                
+
+            var len = path.Data.GetLength()/path.StrokeThickness;
+            path.StrokeDashArray = new DoubleCollection {len};
+            lineAnimation.From = len;
+            //path.StrokeDashOffset =len ;
             matrixAnimation.PathGeometry = PathGeometry.CreateFromGeometry(Geometry.Parse(path.Data.ToString()));                                 
-            story.Begin(target, true);       
+            story.Begin(this, true);       
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿<Window x:Class="Lemonui_wpf_test.PathWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        Title="PathWindow" Height="450" Width="800">
+    <Grid>
+        <Path x:Name="path" Stroke="Black" StrokeThickness="1" 
+              Data="M0,100 h350 A50,50 0 1 1 450,100 A50,50 0 0 1 350,100 M450,100 h350" />
+    </Grid>
+</Window>

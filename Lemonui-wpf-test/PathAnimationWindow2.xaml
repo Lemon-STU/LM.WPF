@@ -9,20 +9,22 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <WrapPanel Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="btnAnimo" Click="btnAnimo_Click" Margin="0,0,10,0">开始</Button>
             </WrapPanel>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Margin="10">
                 <Canvas x:Name="cvsMain" Background="LightCyan">
-                    <Path  x:Name="path1"  Stroke="LightGreen" StrokeThickness="20" StrokeLineJoin="Round"></Path>
+                    <Path  x:Name="path1"  Stroke="#4E6B7C" StrokeThickness="2" StrokeLineJoin="Round"></Path>
                 </Canvas>
-                <StackPanel VerticalAlignment="Center">
+                <StackPanel VerticalAlignment="Center" Visibility="Collapsed">
                     <Button Content="Hello,wolrd" Width="150" Height="30"/>
                 </StackPanel>
             </Grid>
+            
         </Grid>
+        <!--<Path Stroke="Red" StrokeThickness="1" Data="M0,200 300,200 A20,20 0 0 0 320,180 L320,100 A20,20 0 0 0 300,80 L0,80"/>-->
     </Grid>
 </Window>
