@@ -77,6 +77,12 @@
     <Compile Include="SearchBox.xaml.cs">
       <DependentUpon>SearchBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SpriteWindow.xaml.cs">
+      <DependentUpon>SpriteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeWindow.xaml.cs">
+      <DependentUpon>TreeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UniformStackPanel.cs" />
     <Compile Include="UniformStackPanelWindow.xaml.cs">
       <DependentUpon>UniformStackPanelWindow.xaml</DependentUpon>
@@ -121,6 +127,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SpriteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TreeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UniformStackPanelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,13 +168,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\demo1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lemonui-wpf\Lemonui-wpf.csproj">
       <Project>{f9beac3e-0393-4936-882e-1ae0e63c89bb}</Project>
       <Name>Lemonui-wpf</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\screenshots.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="screenshots.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\demo9.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
