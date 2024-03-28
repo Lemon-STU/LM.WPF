@@ -183,7 +183,10 @@
     <Resource Include="screenshots.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\demo9.jpg" />
+    <EmbeddedResource Include="Resources\demo9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\demo12.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

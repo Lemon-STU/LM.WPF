@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 
 namespace Lemonui_wpf.Controls
 {
@@ -63,43 +66,84 @@ namespace Lemonui_wpf.Controls
             }));
 
         [Category("Sprite")]
-        public Uri Source
+        public string Source
         {
-            get { return (Uri)GetValue(SourceProperty); }
+            get { return (string)GetValue(SourceProperty); }
             set { SetValue(SourceProperty, value); }
         }
 
         public static readonly DependencyProperty SourceProperty =
-            DependencyProperty.Register("Source", typeof(Uri), typeof(Sprite), new PropertyMetadata((d, e) => { 
-                Uri uri=e.NewValue as Uri;
+            DependencyProperty.Register("Source", typeof(string), typeof(Sprite), new PropertyMetadata((d, e) => { 
+                string uri=e.NewValue as string;
                 var sprite=d as Sprite;
                 if(uri != null)
                 {
-                    if (!cachedBitmapFrames.ContainsKey(uri.ToString()))
+                    uri = uri.ToLower();
+                    if (!cachedBitmapFrames.ContainsKey(uri))
                     {
-                        var assemblyName= Assembly.GetEntryAssembly().GetName().Name;
-                        if(!uri.ToString().Contains(":"))
+                        Stream stream = null;
+                        if(File.Exists(uri))
                         {
-                            string uriex = $"pack://application:,,,/{assemblyName};component/{uri}";
-                            uri=new Uri(uriex);
+                            stream = File.OpenRead(uri);
                         }
-                        var encoder = BitmapDecoder.Create(uri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
-                        cachedBitmapFrames.Add(uri.ToString(), encoder.Frames);
+                        else
+                        {
+                            var assembly = Assembly.GetEntryAssembly();
+                            var resNames = assembly.GetManifestResourceNames();
+                            if (resNames.Length > 0)
+                            {
+                                var resStream = assembly.GetManifestResourceStream(resNames[0]);
+                                ResourceSet resourceSet = new ResourceSet(resStream);
+                                var iter = resourceSet.GetEnumerator();
+                                while (iter.MoveNext())
+                                {
+                                    var key = iter.Key as string;
+                                    if (key != null)
+                                    {
+                                        if (uri.Contains(key) || key.Contains(uri))
+                                        {
+                                            stream = iter.Value as UnmanagedMemoryStream;
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (stream != null)
+                        {
+                            var encoder = BitmapDecoder.Create(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
+                            cachedBitmapFrames.Add(uri.ToString(), encoder.Frames);
+                            stream.Close();
+                        }
                     }
-                    sprite.bitmapFrames = cachedBitmapFrames[uri.ToString()];
-                    RenderOpen(sprite, sprite.AutoStart);
-                    sprite.InvalidateVisual();
+                    if (cachedBitmapFrames.ContainsKey(uri))
+                    {
+                        sprite.bitmapFrames = cachedBitmapFrames[uri.ToString()];
+                        RenderOpen(sprite, sprite.AutoStart);
+                        sprite.InvalidateVisual();
+                    }
                 }            
             }));
 
 
+
+
         protected override void OnRender(DrawingContext drawingContext)
         {
-            if(bitmapFrames!=null && bitmapFrames.Count > 0)
+            if (bitmapFrames != null && bitmapFrames.Count > 0)
             {
-                drawingContext.DrawImage(bitmapFrames[cnt++], new Rect(0,0,this.ActualWidth,this.ActualHeight));
-                if(cnt>=bitmapFrames.Count)
+                drawingContext.DrawImage(bitmapFrames[cnt++], new Rect(0, 0, this.ActualWidth, this.ActualHeight));
+                if (cnt >= bitmapFrames.Count)
                     cnt = 0;
+            }
+            else
+            {
+                if (DesignerProperties.GetIsInDesignMode(this))
+                { 
+                    drawingContext.DrawRectangle(Brushes.Gray, new Pen(Brushes.Black, 2), new Rect(0, 0, this.ActualWidth, this.ActualHeight));
+                    drawingContext.DrawLine(new Pen(Brushes.White, 1), new Point(2, 2), new Point(this.ActualWidth-2, this.ActualHeight-2));
+                    drawingContext.DrawLine(new Pen(Brushes.White, 1), new Point(2, this.ActualHeight-2), new Point(this.ActualWidth-2, 2));
+                }
             }
         }
 
