@@ -79,6 +79,7 @@
     <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Sprite.cs" />
     <Compile Include="Controls\UniformStackPanel.cs" />
+    <Compile Include="Controls\BackgroundMediaElement.cs" />
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>

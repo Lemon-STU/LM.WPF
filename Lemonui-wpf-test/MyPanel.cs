@@ -12,7 +12,7 @@ namespace Lemonui_wpf_test
 {
     internal class MyPanel:Panel
     {
-        Rectangle rect=new Rectangle();
+        Rectangle rect=new Rectangle() { MinWidth = 100 };
         Rectangle rect1 = new Rectangle();
         public MyPanel() {
             rect.Fill = Brushes.Red;
@@ -22,25 +22,30 @@ namespace Lemonui_wpf_test
         }
         protected override Size MeasureOverride(Size availableSize)
         {
-            //rect.Measure(availableSize);
-            return new Size(300,200);
+           // var size=new Size(500,500);
+            //rect.Measure(size);
+            rect.Measure(availableSize);
+            return availableSize;
         }
 
         protected override Size ArrangeOverride(Size finalSize)
         {
+            var rectDesiredSize = rect.DesiredSize;
             rect.Arrange(new Rect(0, 0, 100, 100));
             rect1.Arrange(new Rect(100, 100, 100, 100));
-            finalSize.Height = 200;
-            finalSize.Width = 300;
+            //finalSize.Width = 300;
+            //finalSize.Height = 800;
             return finalSize;
         }
 
         protected override void OnRender(DrawingContext dc)
         {
+            var renderSize = this.RenderSize;
             base.OnRender(dc);
             var rect = new Rect(0, 0, this.ActualWidth, this.ActualHeight);
             Console.WriteLine(rect);
-            dc.DrawRectangle(Brushes.Transparent, new Pen(Brushes.Red, 1), rect);
+            rect.Inflate(-1, -1);
+            dc.DrawRectangle(Brushes.Transparent, new Pen(Brushes.Red, 1),rect) ;
         }
     }
 }
