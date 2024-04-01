@@ -10,21 +10,17 @@
         <!--<MediaElement x:Name="player" Width="300" Height="200" Source="D:\System\Videos\demo.mp4" 
                       LoadedBehavior="Manual"  MediaEnded="player_MediaEnded"
                       />-->
-        <BackgroundMediaElement Width="300" Height="200" IsMuted="True" Stretch="Fill"
+        <BackgroundMediaElement Width="600" Height="300" IsMuted="True" Stretch="Fill"
                                 CoverImage="/Resources/demo1.jpg"
-                                Source="D:\System\Videos\demo.mp4" Margin="-38,-27,538,262"/>
-        <BackgroundMediaElement Width="300" Height="200" IsMuted="True" Stretch="Fill"
-                         CoverImage="/Resources/demo1.jpg"
-                         Source="D:\System\Videos\demo.mp4"/>
-        <BackgroundMediaElement Width="300" Height="200" IsMuted="True" Stretch="Fill"
-                         CoverImage="/Resources/demo1.jpg"
-                         Source="D:\System\Videos\demo.mp4" Margin="502,240,-2,-5"/>
-        <BackgroundMediaElement Width="300" Height="200" IsMuted="True" Stretch="Fill"
-                         CoverImage="/Resources/demo1.jpg"
-                         Source="D:\System\Videos\demo.mp4" Margin="-26,240,526,-5"/>
-        <BackgroundMediaElement Width="300" Height="200" IsMuted="True" Stretch="Fill"
-                         CoverImage="/Resources/demo1.jpg"
-                         Source="D:\System\Videos\demo.mp4" Margin="511,-30,-11,265"/>
+                                Source="D:\System\Videos\demo.mp4" Margin="-98,-23,298,158" />
+
+        <BackgroundMediaElement Width="600" Height="300" IsMuted="True" Stretch="Fill"
+                        CoverImage="/Resources/demo1.jpg"
+                        Source="D:\System\Videos\demo.mp4" Margin="507,10,-307,125" />
+        <BackgroundMediaElement Width="600" Height="300" IsMuted="True" Stretch="Fill"
+                        CoverImage="/Resources/demo1.jpg"
+
+                        Source="D:\System\Videos\demo.mp4" Margin="57,323,143,-188" />
         <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="614,217,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

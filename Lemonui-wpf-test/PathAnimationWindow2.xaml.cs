@@ -127,7 +127,7 @@ namespace Lemonui_wpf_test
             }
             #endregion
 
-            var len = path.Data.GetLength()/path.StrokeThickness;
+            var len = path.Data.GetLength()/path.StrokeThickness;//这里的长度需要除以线的ThickNess，否则计算的就不是正确的长度，导致动画不对
             path.StrokeDashArray = new DoubleCollection {len};
             lineAnimation.From = len;
             //path.StrokeDashOffset =len ;

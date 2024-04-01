@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConnectStatusValueConverter.cs" />
+    <Compile Include="ConvertorWindow.xaml.cs">
+      <DependentUpon>ConvertorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataTriggerWindow.xaml.cs">
       <DependentUpon>DataTriggerWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +97,16 @@
     <Compile Include="UniformStackPanelWindow.xaml.cs">
       <DependentUpon>UniformStackPanelWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewBoxScale.xaml.cs">
+      <DependentUpon>ViewBoxScale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBoxUserControl.xaml.cs">
+      <DependentUpon>ViewBoxUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ConvertorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataTriggerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +164,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UniformStackPanelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewBoxScale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewBoxUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

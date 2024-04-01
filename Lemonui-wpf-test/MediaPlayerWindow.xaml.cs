@@ -23,12 +23,12 @@ namespace Lemonui_wpf_test
         {
             InitializeComponent();
             this.Loaded += MediaPlayerWindow_Loaded;
-
-           // MediaElement
+            //MediaElement
         }
 
         private void MediaPlayerWindow_Loaded(object sender, RoutedEventArgs e)
         {
+          
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
            // mediaPlayer.Open(new Uri(@"D:\System\Videos\demo.mp4", UriKind.RelativeOrAbsolute));
             this.InvalidateVisual();
