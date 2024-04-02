@@ -1,0 +1,32 @@
+﻿<Window x:Class="Lemonui_wpf_test.PathSVGWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        Title="PathSVGWindow" Width="500" Height="360" >
+    <Grid>
+        <!--<Viewbox Width="80" >
+
+
+            <Path StrokeThickness="8" Stroke="Black" Fill="Green" 
+              Data="M0,80 h200 h-80 v-20 h-40 v-60 h80 v60 h-40 v20
+              h-50 v20 h-40 v60 h80 v-60 h-40 v-20 h100 v20
+              h-40 v60 h80 v-60 h-40 v-20
+              ">
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)" Duration="0:0:1.5"
+                                            To="Green" From="LightGreen" RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Viewbox>-->
+        <NetStatus Width="90" IsConnected="True" ConnectColor2="Red" DisConnectColor="Red"/>
+    </Grid>
+</Window>

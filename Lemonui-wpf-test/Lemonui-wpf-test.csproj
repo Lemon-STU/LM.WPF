@@ -78,6 +78,9 @@
     <Compile Include="PathAnimationWindow2.xaml.cs">
       <DependentUpon>PathAnimationWindow2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PathSVGWindow.xaml.cs">
+      <DependentUpon>PathSVGWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PathWindow.xaml.cs">
       <DependentUpon>PathWindow.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,9 @@
     </Compile>
     <Compile Include="SpriteWindow.xaml.cs">
       <DependentUpon>SpriteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StoryBoardWindow.xaml.cs">
+      <DependentUpon>StoryBoardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TreeWindow.xaml.cs">
       <DependentUpon>TreeWindow.xaml</DependentUpon>
@@ -143,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PathSVGWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PathWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SpriteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StoryBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

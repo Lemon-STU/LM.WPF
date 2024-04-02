@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Lemonui_wpf_test"
-             StartupUri="PathAnimationWindow2.xaml">
+             StartupUri="StoryBoardWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>
