@@ -96,6 +96,9 @@
     <Compile Include="StoryBoardWindow.xaml.cs">
       <DependentUpon>StoryBoardWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TransFormWindow.xaml.cs">
+      <DependentUpon>TransFormWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TreeWindow.xaml.cs">
       <DependentUpon>TreeWindow.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StoryBoardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransFormWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
