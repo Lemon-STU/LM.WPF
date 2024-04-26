@@ -196,6 +196,7 @@ namespace Lemonui_wpf.Helper
              */
             #endregion
             var grid = sender as Grid;
+            grid.Loaded -= new RoutedEventHandler(GridLoaded);
             var rowCount = Math.Max(1, grid.RowDefinitions.Count);
             var columnCount = Math.Max(1, grid.ColumnDefinitions.Count);
             #region 初始化标准数组
