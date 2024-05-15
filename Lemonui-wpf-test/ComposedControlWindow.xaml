@@ -1,0 +1,23 @@
+﻿<Window x:Class="Lemonui_wpf_test.ComposedControlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lemonui_wpf_test"
+        mc:Ignorable="d"
+        Title="ComposedControlWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:TextConvertor x:Key="textconvertor"/>
+    </Window.Resources>
+    <Grid Background="AliceBlue">
+        <CommonText x:Name="ctext" VerticalContentAlignment="Center" FontSize="15" 
+                         Foreground="Red"  
+                         Width="200" Height="50"
+                         ControlType="combobox" Text="{Binding TextTest,Mode=TwoWay,Converter={StaticResource textconvertor}}"/>
+        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="400,366,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="mytextbox" HorizontalAlignment="Left" Margin="361,294,0,0" TextWrapping="Wrap" 
+                  VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ctext1"  IsEditable="True" HorizontalAlignment="Left" Margin="567,347,0,0" VerticalAlignment="Top" Width="120">
+        </ComboBox>
+    </Grid>
+</Window>

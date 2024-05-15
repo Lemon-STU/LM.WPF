@@ -83,6 +83,7 @@
     <Compile Include="Common\RenderHelper.cs" />
     <Compile Include="Controls\CircularIndicator.cs" />
     <Compile Include="Controls\CircularProgress.cs" />
+    <Compile Include="Controls\CommonText.cs" />
     <Compile Include="Controls\DropDownButton.cs" />
     <Compile Include="Controls\NetStatus.cs" />
     <Compile Include="Controls\NumericUpDown.cs" />

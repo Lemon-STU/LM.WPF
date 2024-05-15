@@ -45,8 +45,9 @@ namespace Lemonui_wpf.Controls
             }
         }
 
-        private void Control_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private async void Control_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            await Task.Delay(500);
             IsDropDownOpened = false;
         }
 

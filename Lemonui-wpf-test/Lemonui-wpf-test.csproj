@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AB110ED7-30EB-40B2-A2BB-45EFE4341DAC}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Lemonui_wpf_test</RootNamespace>
     <AssemblyName>Lemonui-wpf-test</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,12 +58,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ComposedControlWindow.xaml.cs">
+      <DependentUpon>ComposedControlWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConnectStatusValueConverter.cs" />
     <Compile Include="ConvertorWindow.xaml.cs">
       <DependentUpon>ConvertorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataTriggerWindow.xaml.cs">
       <DependentUpon>DataTriggerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownWindow.xaml.cs">
+      <DependentUpon>DropDownWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="IndicatorWindow.xaml.cs">
       <DependentUpon>IndicatorWindow.xaml</DependentUpon>
@@ -96,6 +105,7 @@
     <Compile Include="StoryBoardWindow.xaml.cs">
       <DependentUpon>StoryBoardWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TextConvertor.cs" />
     <Compile Include="TransFormWindow.xaml.cs">
       <DependentUpon>TransFormWindow.xaml</DependentUpon>
     </Compile>
@@ -112,11 +122,19 @@
     <Compile Include="ViewBoxUserControl.xaml.cs">
       <DependentUpon>ViewBoxUserControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="ComposedControlWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConvertorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataTriggerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DropDownWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
