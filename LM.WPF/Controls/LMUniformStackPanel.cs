@@ -9,9 +9,9 @@ using System.Windows.Media;
 
 namespace LM.WPF.Controls
 {
-    public class UniformStackPanel : Panel
+    public class LMUniformStackPanel : Panel
     {
-        public UniformStackPanel()
+        public LMUniformStackPanel()
         {
             this.ClipToBounds = true;
         }
@@ -24,7 +24,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for BorderThickness.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BorderThicknessProperty =
-            DependencyProperty.Register("BorderThickness", typeof(double), typeof(UniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("BorderThickness", typeof(double), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public Brush BorderBrush
@@ -35,7 +35,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for BorderBrush.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BorderBrushProperty =
-            DependencyProperty.Register("BorderBrush", typeof(Brush), typeof(UniformStackPanel), new FrameworkPropertyMetadata(Brushes.Transparent, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("BorderBrush", typeof(Brush), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(Brushes.Transparent, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public double Radius
@@ -46,7 +46,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for Radius.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RadiusProperty =
-            DependencyProperty.Register("Radius", typeof(double), typeof(UniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Radius", typeof(double), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
 
@@ -59,7 +59,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for Padding.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PaddingProperty =
-            DependencyProperty.Register("Padding", typeof(Thickness), typeof(UniformStackPanel), new FrameworkPropertyMetadata(new Thickness(0), FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Padding", typeof(Thickness), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(new Thickness(0), FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public Orientation Orientation
@@ -70,7 +70,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for Orientation.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty OrientationProperty =
-            DependencyProperty.Register("Orientation", typeof(Orientation), typeof(UniformStackPanel), new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Orientation", typeof(Orientation), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public double Space
@@ -81,7 +81,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for Space.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SpaceProperty =
-            DependencyProperty.Register("Space", typeof(double), typeof(UniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Space", typeof(double), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         protected override Size MeasureOverride(Size availableSize)

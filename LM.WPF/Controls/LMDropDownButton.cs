@@ -11,14 +11,14 @@ using System.Windows.Media;
 
 namespace LM.WPF.Controls
 {
-    public class DropDownButton:ContentControl
+    public class LMDropDownButton:ContentControl
     {
-        static DropDownButton()
+        static LMDropDownButton()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(DropDownButton),new FrameworkPropertyMetadata(typeof(DropDownButton)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(LMDropDownButton),new FrameworkPropertyMetadata(typeof(LMDropDownButton)));
            
         }
-        public DropDownButton()
+        public LMDropDownButton()
         {
             this.Loaded += DropDownButton_Loaded;
         }
@@ -33,7 +33,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for IsDropDownOpened.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsDropDownOpenedProperty =
-            DependencyProperty.Register("IsDropDownOpened", typeof(bool), typeof(DropDownButton), new PropertyMetadata(false));
+            DependencyProperty.Register("IsDropDownOpened", typeof(bool), typeof(LMDropDownButton), new PropertyMetadata(false));
 
 
         private void DropDownButton_Loaded(object sender, RoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace LM.WPF.Controls
         }
 
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(DropDownButton), new FrameworkPropertyMetadata(new CornerRadius(0.0),FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(LMDropDownButton), new FrameworkPropertyMetadata(new CornerRadius(0.0),FrameworkPropertyMetadataOptions.AffectsRender));
 
 
 
@@ -69,7 +69,7 @@ namespace LM.WPF.Controls
             set { SetValue(DropDownContentProperty, value); }
         }
         public static readonly DependencyProperty DropDownContentProperty =
-            DependencyProperty.Register("DropDownContent", typeof(object), typeof(DropDownButton), new FrameworkPropertyMetadata(null,FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("DropDownContent", typeof(object), typeof(LMDropDownButton), new FrameworkPropertyMetadata(null,FrameworkPropertyMetadataOptions.AffectsRender));
 
 
 

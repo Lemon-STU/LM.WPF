@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 
 namespace LM.WPF.Controls
 {
-    public class BackgroundMediaElement:MediaElement
+    public class LMBackgroundMediaElement:MediaElement
     {
         private bool isBufferOver = false;
 
@@ -21,10 +21,10 @@ namespace LM.WPF.Controls
             set { SetValue(CoverImageProperty, value); }
         }
         public static readonly DependencyProperty CoverImageProperty =
-            DependencyProperty.Register("CoverImage", typeof(ImageSource), typeof(BackgroundMediaElement));
+            DependencyProperty.Register("CoverImage", typeof(ImageSource), typeof(LMBackgroundMediaElement));
 
 
-        public BackgroundMediaElement() : base()
+        public LMBackgroundMediaElement() : base()
         {
             this.MediaEnded += BackgroundMediaElement_MediaEnded;
             this.MediaOpened += BackgroundMediaElement_MediaOpened;

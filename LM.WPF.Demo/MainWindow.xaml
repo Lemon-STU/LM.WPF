@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <!--<local:MeasureArrangeRender Test="1"/>-->
+        <!--<LMImage Source="demo10.jpg" Stretch="Uniform" CornerRadius="35" BorderBrush="LawnGreen" BorderThickness="15"/>-->
+        <LMBorder CornerRadius="10" Background="Green" Width="300" Height="200" BorderThickness="0" BorderBrush="Red">
+            <Image Source="demo10.jpg" Stretch="Fill"/>
+        </LMBorder>
     </Grid>
 </Window>

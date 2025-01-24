@@ -10,13 +10,13 @@ using System.Windows.Shapes;
 
 namespace LM.WPF.Controls
 {
-    public class CircularProgress:UserControl
+    public class LMCircularProgress:UserControl
     {
-        static CircularProgress()
+        static LMCircularProgress()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CircularProgress), new FrameworkPropertyMetadata(typeof(CircularProgress)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(LMCircularProgress), new FrameworkPropertyMetadata(typeof(LMCircularProgress)));
         }
-        public CircularProgress()
+        public LMCircularProgress()
         {
             this.grid = new Grid();
             this.path = new Path();
@@ -45,7 +45,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for TickPanelVisibility.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TickPanelVisibilityProperty =
-            DependencyProperty.Register("TickPanelVisibility", typeof(Visibility), typeof(CircularProgress), new FrameworkPropertyMetadata(Visibility.Visible, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("TickPanelVisibility", typeof(Visibility), typeof(LMCircularProgress), new FrameworkPropertyMetadata(Visibility.Visible, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for CircularPadding.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CircularPaddingProperty =
-            DependencyProperty.Register("CircularPadding", typeof(double), typeof(CircularProgress), new PropertyMetadata(5.0));
+            DependencyProperty.Register("CircularPadding", typeof(double), typeof(LMCircularProgress), new PropertyMetadata(5.0));
 
         /// <summary>
         /// the Arc color
@@ -70,9 +70,9 @@ namespace LM.WPF.Controls
             set { SetValue(CircularColorProperty, value); }
         }
         public static readonly DependencyProperty CircularColorProperty =
-            DependencyProperty.Register("CircularColor", typeof(Brush), typeof(CircularProgress), new PropertyMetadata(Brushes.Red, (d, e) => {
+            DependencyProperty.Register("CircularColor", typeof(Brush), typeof(LMCircularProgress), new PropertyMetadata(Brushes.Red, (d, e) => {
                 var color = e.NewValue as Brush;
-                CircularProgress control = d as CircularProgress;
+                LMCircularProgress control = d as LMCircularProgress;
                 if (color != null && control != null)
                 {
                     control.path.Stroke = color;
@@ -108,21 +108,21 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for CircularOrbitThickness.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CircularOrbitThicknessProperty =
-            DependencyProperty.Register("CircularOrbitThickness", typeof(double), typeof(CircularProgress), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("CircularOrbitThickness", typeof(double), typeof(LMCircularProgress), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
 
         // Using a DependencyProperty as the backing store for CircularOrbitColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CircularOrbitColorProperty =
-            DependencyProperty.Register("CircularOrbitColor", typeof(Brush), typeof(CircularProgress), new FrameworkPropertyMetadata(Brushes.Gray,FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("CircularOrbitColor", typeof(Brush), typeof(LMCircularProgress), new FrameworkPropertyMetadata(Brushes.Gray,FrameworkPropertyMetadataOptions.AffectsRender));
 
 
 
 
         public static readonly DependencyProperty CircularThicknessProperty =
-            DependencyProperty.Register("CircularThickness", typeof(double), typeof(CircularProgress), new PropertyMetadata(0.0, (d, e) => {
+            DependencyProperty.Register("CircularThickness", typeof(double), typeof(LMCircularProgress), new PropertyMetadata(0.0, (d, e) => {
                 var thickness = (double)e.NewValue;
-                CircularProgress control = d as CircularProgress;
+                LMCircularProgress control = d as LMCircularProgress;
                 if (control != null)
                 {
                     control.path.StrokeThickness = thickness;
@@ -140,7 +140,7 @@ namespace LM.WPF.Controls
         }
 
         public static readonly DependencyProperty ProgressProperty =
-            DependencyProperty.Register("Progress", typeof(double), typeof(CircularProgress), new PropertyMetadata(0.0, valueChangedCallback));
+            DependencyProperty.Register("Progress", typeof(double), typeof(LMCircularProgress), new PropertyMetadata(0.0, valueChangedCallback));
 
         private Path path = null;
         private PathFigure pathFigure;
@@ -150,7 +150,7 @@ namespace LM.WPF.Controls
 
         static void valueChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var control = d as CircularProgress;
+            var control = d as LMCircularProgress;
             if (control != null && !control.IsLoaded)
             {
                 control.Loaded += (s, ex) => {
@@ -162,7 +162,7 @@ namespace LM.WPF.Controls
                 changeValue(control);
             }
         }
-        static void changeValue(CircularProgress control)
+        static void changeValue(LMCircularProgress control)
         {
             Point startPoint = new Point();
             Point endPoint = new Point();

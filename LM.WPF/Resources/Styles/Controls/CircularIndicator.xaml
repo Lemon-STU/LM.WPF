@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:LM.WPF.Controls">
-    <Style x:Key="{x:Type controls:CircularIndicator}" TargetType="controls:CircularIndicator">
+    <Style x:Key="{x:Type controls:LMCircularIndicator}" TargetType="controls:LMCircularIndicator">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:CircularIndicator">
+                <ControlTemplate TargetType="controls:LMCircularIndicator">
                     <Border BorderBrush="Red" BorderThickness="0" x:Name="container">
                         <Grid>
                             <Grid.RowDefinitions>

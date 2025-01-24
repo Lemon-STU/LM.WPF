@@ -9,16 +9,16 @@ using System.Windows.Controls;
 
 namespace LM.WPF.Controls
 {
-    public class CircularIndicator:Control
+    public class LMCircularIndicator:Control
     {
 
-        static CircularIndicator()
+        static LMCircularIndicator()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CircularIndicator), new FrameworkPropertyMetadata(typeof(CircularIndicator)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(LMCircularIndicator), new FrameworkPropertyMetadata(typeof(LMCircularIndicator)));
            
         }
 
-        public CircularIndicator()
+        public LMCircularIndicator()
         {
            
         }
@@ -32,7 +32,7 @@ namespace LM.WPF.Controls
         }
 
         public static readonly DependencyProperty IndicatorTextProperty =
-            DependencyProperty.Register("IndicatorText", typeof(string), typeof(CircularIndicator), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("IndicatorText", typeof(string), typeof(LMCircularIndicator), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public double IndicatorValue
@@ -41,7 +41,7 @@ namespace LM.WPF.Controls
             set { SetValue(IndicatorValueProperty, value); }
         }
         public static readonly DependencyProperty IndicatorValueProperty =
-            DependencyProperty.Register("IndicatorValue", typeof(double), typeof(CircularIndicator), new FrameworkPropertyMetadata(0.0,FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("IndicatorValue", typeof(double), typeof(LMCircularIndicator), new FrameworkPropertyMetadata(0.0,FrameworkPropertyMetadataOptions.AffectsRender));
 
 
     }

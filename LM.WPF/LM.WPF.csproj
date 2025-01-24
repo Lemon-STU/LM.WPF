@@ -81,15 +81,17 @@
     </Page>
     <Compile Include="Common\DrawingContextExtension.cs" />
     <Compile Include="Common\RenderHelper.cs" />
-    <Compile Include="Controls\CircularIndicator.cs" />
-    <Compile Include="Controls\CircularProgress.cs" />
-    <Compile Include="Controls\CommonText.cs" />
-    <Compile Include="Controls\DropDownButton.cs" />
-    <Compile Include="Controls\NetStatus.cs" />
-    <Compile Include="Controls\NumericUpDown.cs" />
-    <Compile Include="Controls\Sprite.cs" />
-    <Compile Include="Controls\UniformStackPanel.cs" />
-    <Compile Include="Controls\BackgroundMediaElement.cs" />
+    <Compile Include="Controls\LMBorder.cs" />
+    <Compile Include="Controls\LMCircularIndicator.cs" />
+    <Compile Include="Controls\LMCircularProgress.cs" />
+    <Compile Include="Controls\LMCommonText.cs" />
+    <Compile Include="Controls\LMDropDownButton.cs" />
+    <Compile Include="Controls\LMImage.cs" />
+    <Compile Include="Controls\LMNetStatus.cs" />
+    <Compile Include="Controls\LMNumericUpDown.cs" />
+    <Compile Include="Controls\LMSprite.cs" />
+    <Compile Include="Controls\LMUniformStackPanel.cs" />
+    <Compile Include="Controls\LMBackgroundMediaElement.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="Converter\IndentConverter.cs" />
     <Compile Include="CustomControl1.cs">
@@ -97,6 +99,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\Gemometry\GeometryHelper.cs" />
     <Compile Include="Helper\Gemometry\GeometryExtension.cs" />
     <Compile Include="Helper\Image\ImageHelper.cs" />
     <Compile Include="Helper\TextBox\TextBoxOption.cs" />

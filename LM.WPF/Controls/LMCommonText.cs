@@ -33,9 +33,9 @@ namespace LM.WPF.Controls
             return val.Substring(0, index);
         }
     }
-    public class CommonText:UserControl
+    public class LMCommonText:UserControl
     {
-        static CommonText()
+        static LMCommonText()
         {
             //DefaultStyleKeyProperty.OverrideMetadata(typeof(ComposedControl), new FrameworkPropertyMetadata(typeof(ComposedControl)));
         }
@@ -53,7 +53,7 @@ namespace LM.WPF.Controls
         }
         
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(CommonText), new PropertyMetadata("", (d, e) => {
+            DependencyProperty.Register("Text", typeof(string), typeof(LMCommonText), new PropertyMetadata("", (d, e) => {
                 Console.WriteLine(e.NewValue);
             }));
 
@@ -63,7 +63,7 @@ namespace LM.WPF.Controls
             set { SetValue(ItemsSourceProperty, value); }
         }       
         public static readonly DependencyProperty ItemsSourceProperty =
-            DependencyProperty.Register("ItemsSource", typeof(IEnumerable), typeof(CommonText));
+            DependencyProperty.Register("ItemsSource", typeof(IEnumerable), typeof(LMCommonText));
 
 
         public string ControlType
@@ -74,8 +74,8 @@ namespace LM.WPF.Controls
 
         
         public static readonly DependencyProperty ControlTypeProperty =
-            DependencyProperty.Register("ControlType", typeof(string), typeof(CommonText), new PropertyMetadata("", (d, e) => { 
-                var control=d as CommonText;
+            DependencyProperty.Register("ControlType", typeof(string), typeof(LMCommonText), new PropertyMetadata("", (d, e) => { 
+                var control=d as LMCommonText;
                 var type=e.NewValue as string;
                 if (control != null)
                 {
@@ -148,7 +148,7 @@ namespace LM.WPF.Controls
             this.Content = textblock;
             this.Content = textblock;
         }
-        public CommonText()
+        public LMCommonText()
         {
             this.HorizontalAlignment = HorizontalAlignment.Center;
             this.VerticalAlignment = VerticalAlignment.Center;

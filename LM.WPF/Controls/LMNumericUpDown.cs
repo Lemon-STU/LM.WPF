@@ -8,11 +8,11 @@ using System.Windows.Controls;
 
 namespace LM.WPF.Controls
 {
-    public class NumericUpDown:Slider
+    public class LMNumericUpDown:Slider
     {
-        static NumericUpDown()
+        static LMNumericUpDown()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDown), new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(LMNumericUpDown), new FrameworkPropertyMetadata(typeof(LMNumericUpDown)));
         }
     }
 }

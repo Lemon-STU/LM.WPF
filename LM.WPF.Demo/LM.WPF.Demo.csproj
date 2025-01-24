@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="demo10.jpg" />
+    <None Remove="moon.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LM.WPF\LM.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="demo10.jpg" />
+    <Resource Include="moon.jpg" />
   </ItemGroup>
 
 </Project>

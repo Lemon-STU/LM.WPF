@@ -19,7 +19,7 @@ using System.Windows.Resources;
 
 namespace LM.WPF.Controls
 {
-    public class Sprite:FrameworkElement
+    public class LMSprite:FrameworkElement
     {
         private static Dictionary<string, ReadOnlyCollection<BitmapFrame>> cachedBitmapFrames=new Dictionary<string, ReadOnlyCollection<BitmapFrame>>();
         private  ReadOnlyCollection<BitmapFrame> bitmapFrames;
@@ -35,29 +35,29 @@ namespace LM.WPF.Controls
                 framecnt = 1;
             }
         }
-        [Category("Sprite")]
+        [Category("LMSprite")]
         public bool AutoStart
         {
             get { return (bool)GetValue(AutoStartProperty); }
             set { SetValue(AutoStartProperty, value); }
         }
         public static readonly DependencyProperty AutoStartProperty =
-            DependencyProperty.Register("AutoStart", typeof(bool), typeof(Sprite), new PropertyMetadata((d, e) =>
+            DependencyProperty.Register("AutoStart", typeof(bool), typeof(LMSprite), new PropertyMetadata((d, e) =>
             {
                 bool isAutoStart = (bool)e.NewValue;
-                var sprite = d as Sprite;
+                var sprite = d as LMSprite;
                 RenderOpen(sprite, isAutoStart);
             }));
 
-        [Category("Sprite")]
+        [Category("LMSprite")]
         public int DesireFrameRate
         {
             get { return (int)GetValue(DesireFrameRateProperty); }
             set { SetValue(DesireFrameRateProperty, value); }
         }
         public static readonly DependencyProperty DesireFrameRateProperty =
-            DependencyProperty.Register("DesireFrameRate", typeof(int), typeof(Sprite),new PropertyMetadata(20, (d, e) => { 
-                var sprite = d as Sprite;
+            DependencyProperty.Register("DesireFrameRate", typeof(int), typeof(LMSprite),new PropertyMetadata(20, (d, e) => { 
+                var sprite = d as LMSprite;
                 if(sprite != null)
                 {
                     var desirefps = (int)e.NewValue;
@@ -65,7 +65,7 @@ namespace LM.WPF.Controls
                 }            
             }));
 
-        [Category("Sprite")]
+        [Category("LMSprite")]
         public string Source
         {
             get { return (string)GetValue(SourceProperty); }
@@ -73,9 +73,9 @@ namespace LM.WPF.Controls
         }
 
         public static readonly DependencyProperty SourceProperty =
-            DependencyProperty.Register("Source", typeof(string), typeof(Sprite), new PropertyMetadata((d, e) => { 
+            DependencyProperty.Register("Source", typeof(string), typeof(LMSprite), new PropertyMetadata((d, e) => { 
                 string uri=e.NewValue as string;
-                var sprite=d as Sprite;
+                var sprite=d as LMSprite;
                 if(uri != null)
                 {
                     uri = uri.ToLower();
@@ -147,7 +147,7 @@ namespace LM.WPF.Controls
             }
         }
 
-        private static void RenderOpen(Sprite sprite,bool isopen)
+        private static void RenderOpen(LMSprite sprite,bool isopen)
         {
             if (sprite != null && sprite.bitmapFrames!=null)
             {

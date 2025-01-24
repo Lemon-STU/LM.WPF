@@ -6,7 +6,7 @@
         <GradientStop Color="Red" Offset="0"/>
         <GradientStop Color="Green" Offset="1"/>
     </LinearGradientBrush>
-    <Style x:Key="{x:Type control:CircularProgress}" TargetType="{x:Type control:CircularProgress}">
+    <Style x:Key="{x:Type control:LMCircularProgress}" TargetType="{x:Type control:LMCircularProgress}">
         <Setter Property="CircularColor" Value="#FEF200"/>
         <Setter Property="CircularThickness" Value="5"/>
         <Setter Property="CircularPadding" Value="20"/>
@@ -14,11 +14,11 @@
         <Setter Property="CircularOrbitThickness" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="control:CircularProgress">
+                <ControlTemplate TargetType="control:LMCircularProgress">
                     <Grid>
                         <ContentPresenter/>
                         <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                               Text="{Binding Progress,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=control:CircularProgress},StringFormat={}{0:P0}}" 
+                               Text="{Binding Progress,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=control:LMCircularProgress},StringFormat={}{0:P0}}" 
                                Foreground="{TemplateBinding CircularColor}">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="30"

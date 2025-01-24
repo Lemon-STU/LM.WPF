@@ -11,15 +11,15 @@ using System.Windows.Shapes;
 
 namespace LM.WPF.Controls
 {
-    public class NetStatus:UserControl
+    public class LMNetStatus:UserControl
     {
         private Path path;
-        static NetStatus()
+        static LMNetStatus()
         {
-           // DefaultStyleKeyProperty.OverrideMetadata(typeof(NetStatus),new FrameworkPropertyMetadata(typeof(NetStatus)));
+           // DefaultStyleKeyProperty.OverrideMetadata(typeof(LMNetStatus),new FrameworkPropertyMetadata(typeof(LMNetStatus)));
         }
 
-        public NetStatus()
+        public LMNetStatus()
         {
             path = new Path();
             path.Data = Geometry.Parse("M0,80 h200 h-80 v-20 h-40 v-60 h80 v60 h-40 v20 h-50 v20 h-40 v60 h80 v-60 h-40 v-20 h100 v20 h-40 v60 h80 v-60 h-40 v-20");
@@ -38,8 +38,8 @@ namespace LM.WPF.Controls
             set { SetValue(IsConnectedProperty, value); }
         }
         public static readonly DependencyProperty IsConnectedProperty =
-            DependencyProperty.Register("IsConnected", typeof(bool), typeof(NetStatus), new PropertyMetadata(false, (d, e) => { 
-                var control=d as NetStatus;
+            DependencyProperty.Register("IsConnected", typeof(bool), typeof(LMNetStatus), new PropertyMetadata(false, (d, e) => { 
+                var control=d as LMNetStatus;
                 if (control != null)
                 {
                     var isconnected = (bool)e.NewValue;
@@ -53,8 +53,8 @@ namespace LM.WPF.Controls
             set { SetValue(DisConnectColorProperty, value); }
         }        
         public static readonly DependencyProperty DisConnectColorProperty =
-            DependencyProperty.Register("DisConnectColor", typeof(Brush), typeof(NetStatus),new PropertyMetadata(Brushes.Gray, (d, e) => { 
-                var control= d as NetStatus;
+            DependencyProperty.Register("DisConnectColor", typeof(Brush), typeof(LMNetStatus),new PropertyMetadata(Brushes.Gray, (d, e) => { 
+                var control= d as LMNetStatus;
                 if(d != null)
                 {
                     control.path.Fill = (Brush)e.NewValue;
@@ -68,8 +68,8 @@ namespace LM.WPF.Controls
             set { SetValue(ConnectColor1Property, value); }
         }        
         public static readonly DependencyProperty ConnectColor1Property =
-            DependencyProperty.Register("ConnectColor1", typeof(Color), typeof(NetStatus), new PropertyMetadata(Colors.LightGreen, (d, e) => { 
-                var control = d as NetStatus; 
+            DependencyProperty.Register("ConnectColor1", typeof(Color), typeof(LMNetStatus), new PropertyMetadata(Colors.LightGreen, (d, e) => { 
+                var control = d as LMNetStatus; 
                 if(control != null)
                 {
                     control.Animate(true);
@@ -82,8 +82,8 @@ namespace LM.WPF.Controls
             set { SetValue(ConnectColor2Property, value); }
         }      
         public static readonly DependencyProperty ConnectColor2Property =
-            DependencyProperty.Register("ConnectColor2", typeof(Color), typeof(NetStatus),new PropertyMetadata(Colors.DarkGreen, (d, e) => {
-                var control = d as NetStatus;
+            DependencyProperty.Register("ConnectColor2", typeof(Color), typeof(LMNetStatus),new PropertyMetadata(Colors.DarkGreen, (d, e) => {
+                var control = d as LMNetStatus;
                 if (control != null)
                 {
                     control.Animate(true);
@@ -99,8 +99,8 @@ namespace LM.WPF.Controls
 
        
         public static readonly DependencyProperty StrokeColorProperty =
-            DependencyProperty.Register("StrokeColor", typeof(Brush), typeof(NetStatus), new PropertyMetadata(Brushes.Black, (d, e) => { 
-                var control=d as NetStatus;
+            DependencyProperty.Register("StrokeColor", typeof(Brush), typeof(LMNetStatus), new PropertyMetadata(Brushes.Black, (d, e) => { 
+                var control=d as LMNetStatus;
                 if (control != null)
                 {
                     control.path.Stroke = (Brush)e.NewValue;
@@ -117,8 +117,8 @@ namespace LM.WPF.Controls
 
         
         public static readonly DependencyProperty StrokeThicknessProperty =
-            DependencyProperty.Register("StrokeThickness", typeof(double), typeof(NetStatus), new PropertyMetadata(1.0, (d, e) => {
-                var control = d as NetStatus;
+            DependencyProperty.Register("StrokeThickness", typeof(double), typeof(LMNetStatus), new PropertyMetadata(1.0, (d, e) => {
+                var control = d as LMNetStatus;
                 if (control != null)
                 {
                     control.path.StrokeThickness = (double)e.NewValue;
