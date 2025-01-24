@@ -21,7 +21,7 @@ namespace LM.WPF.Helper.Gemometry
                 Point topLeft = new Point(radii.TopLeft, 0);
                 Point topRight = new Point(rect.Width - radii.TopRight, 0);
                 Point rightTop = new Point(rect.Width, radii.TopRight);
-                Point rightBottom = new Point(rect.Width, rect.Height - radii.BottomRight);
+                Point rightBottom = new Point(rect.Width , rect.Height - radii.BottomRight);
                 Point bottomRight = new Point(rect.Width - radii.BottomRight, rect.Height);
                 Point bottomLeft = new Point(radii.BottomLeft, rect.Height);
                 Point leftBottom = new Point(0, rect.Height - radii.BottomLeft);

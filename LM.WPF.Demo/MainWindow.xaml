@@ -7,10 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!--<local:MeasureArrangeRender Test="1"/>-->
+        <!--<local:MeasureArrangeRender Test="1" Width="500" Height="300"/>-->
         <!--<LMImage Source="demo10.jpg" Stretch="Uniform" CornerRadius="35" BorderBrush="LawnGreen" BorderThickness="15"/>-->
-        <LMBorder CornerRadius="10" Background="Green" Width="300" Height="200" BorderThickness="0" BorderBrush="Red">
+        <!--<LMBorder CornerRadius="10" Background="Green" Width="600" Height="400" BorderThickness="5" BorderBrush="Red">
             <Image Source="demo10.jpg" Stretch="Fill"/>
-        </LMBorder>
+        </LMBorder>-->
+
+        <StackPanel Width="600" x:Name="stack" 
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    >
+            <Button Height="30"/>
+            <Button Height="30"/>
+        </StackPanel>
     </Grid>
 </Window>

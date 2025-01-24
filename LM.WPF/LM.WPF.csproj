@@ -81,7 +81,8 @@
     </Page>
     <Compile Include="Common\DrawingContextExtension.cs" />
     <Compile Include="Common\RenderHelper.cs" />
-    <Compile Include="Controls\LMBorder.cs" />
+    <Compile Include="Controls\Layout\LMBorder.cs" />
+    <Compile Include="Controls\Layout\LMStackPanel.cs" />
     <Compile Include="Controls\LMCircularIndicator.cs" />
     <Compile Include="Controls\LMCircularProgress.cs" />
     <Compile Include="Controls\LMCommonText.cs" />
