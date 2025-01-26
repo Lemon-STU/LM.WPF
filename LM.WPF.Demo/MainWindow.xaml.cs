@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using LM.WPF.Controls;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,14 +20,12 @@ namespace LM.WPF.Demo
         public MainWindow()
         {
             InitializeComponent();
-
             this.Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var w = stack.Width;
-            var h = stack.Height;
+
         }
     }
 }

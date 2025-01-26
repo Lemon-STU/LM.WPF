@@ -13,12 +13,22 @@
             <Image Source="demo10.jpg" Stretch="Fill"/>
         </LMBorder>-->
 
-        <StackPanel Width="600" x:Name="stack" 
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal"
-                    >
-            <Button Height="30"/>
-            <Button Height="30"/>
-        </StackPanel>
+        <!--<Border BorderThickness="3" BorderBrush="Red" Width="600" Height="350">
+            <LMStackPanel  x:Name="stack" 
+            VerticalAlignment="Center"
+            Orientation="Vertical"
+            >
+                <Button Width="30"   Margin="10" Content="Button1"/>
+                <Button Width="100"   Margin="10" />
+                --><!--<Button Height="30" Margin="10" Content="Button3"/>--><!--
+                <Button Width="200" Height="10" Margin="10" />
+                --><!--<Button Height="30" Margin="10" Content="Button5"/>--><!--
+            </LMStackPanel>
+        </Border>-->
+        <LMBorder CornerRadius="15" BorderBrush="Red" BorderThickness="0" Width="300" Height="160">
+            <Grid Background="Green">
+                
+            </Grid>
+        </LMBorder>
     </Grid>
 </Window>

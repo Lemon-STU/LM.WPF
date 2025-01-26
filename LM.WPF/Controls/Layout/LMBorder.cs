@@ -25,6 +25,8 @@ namespace LM.WPF.Controls
             }
             else
                 this.Clip = geometry;
+            var thickness = (BorderThickness.Left + BorderThickness.Top + BorderThickness.Right + BorderThickness.Bottom) / 4;
+            dc.DrawGeometry(Brushes.Transparent, new Pen(BorderBrush, thickness), geometry);
         }
     }
 }
