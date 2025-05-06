@@ -7,22 +7,24 @@
         mc:Ignorable="d"
         Title="PopupWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox Width="200" Height="30">
+        <!--<ComboBox Width="200" Height="30">
             <ComboBoxItem>111111</ComboBoxItem>
             <ComboBoxItem>111111</ComboBoxItem>
             <ComboBoxItem>111111</ComboBoxItem>
             <ComboBoxItem>111111</ComboBoxItem>
             <ComboBoxItem>111111</ComboBoxItem>
-        </ComboBox>
+        </ComboBox>-->
 
-        <Rectangle x:Name="rect" Fill="Red" Width="80" Height="80" HorizontalAlignment="Left" Margin="50"
-                   PreviewMouseDown="Rectangle_PreviewMouseDown" PreviewMouseUp="rect_PreviewMouseUp"/>
+        <!--<Rectangle x:Name="rect" Fill="Red" Width="80" Height="80" HorizontalAlignment="Left" Margin="50"
+                   PreviewMouseDown="Rectangle_PreviewMouseDown" PreviewMouseUp="rect_PreviewMouseUp"/>-->
         <Border BorderBrush="Red" BorderThickness="1" Height="30" Width="150">
             <Grid>
-                <ToggleButton Content="Language" Width="120" Height="30" x:Name="btn_language"/>
-                <Popup IsOpen="{Binding ElementName=btn_language,Path=IsChecked}" x:Name="popup" PlacementTarget="{Binding ElementName=btn_language}" Placement="Bottom" StaysOpen="False"
-                    >
-                    <Border Height="100" Width="200" Background="LightCyan">
+                <ToggleButton Content="Language" Width="150" Height="30" x:Name="btn_language"/>
+                <Popup IsOpen="{Binding ElementName=btn_language,Path=IsChecked}" x:Name="popup" PlacementTarget="{Binding ElementName=btn_language}" 
+                       Placement="Right" StaysOpen="False" AllowsTransparency="True"
+                        HorizontalOffset="0"
+                       >
+                    <Border  Background="LightCyan">
                         <StackPanel>
                             <MenuItem Header="English"/>
                             <MenuItem Header="Chinese"/>

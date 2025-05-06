@@ -49,19 +49,6 @@ namespace Lemonui_wpf.Controls
             DependencyProperty.Register("Radius", typeof(double), typeof(UniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
-
-
-        public Thickness Padding
-        {
-            get { return (Thickness)GetValue(PaddingProperty); }
-            set { SetValue(PaddingProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Padding.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PaddingProperty =
-            DependencyProperty.Register("Padding", typeof(Thickness), typeof(UniformStackPanel), new FrameworkPropertyMetadata(new Thickness(0), FrameworkPropertyMetadataOptions.AffectsRender));
-
-
         public Orientation Orientation
         {
             get { return (Orientation)GetValue(OrientationProperty); }
@@ -73,129 +60,58 @@ namespace Lemonui_wpf.Controls
             DependencyProperty.Register("Orientation", typeof(Orientation), typeof(UniformStackPanel), new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
-        public double Space
-        {
-            get { return (double)GetValue(SpaceProperty); }
-            set { SetValue(SpaceProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Space.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SpaceProperty =
-            DependencyProperty.Register("Space", typeof(double), typeof(UniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
-
 
         protected override Size MeasureOverride(Size availableSize)
         {
-            double currentSizew = 0;
-            double currentSizeh = 0;
-            var counts = this.InternalChildren.Count;
-            if (Orientation == Orientation.Horizontal)
+            double cw = 0;
+            double tw = availableSize.Width;
+            foreach (FrameworkElement item in this.InternalChildren)
             {
-                foreach (FrameworkElement child in this.InternalChildren)
-                {
-                    if (double.IsInfinity(availableSize.Width) || availableSize.Width == 0)
-                    {
-                        if (child.Width > 0)
-                        {
-                            currentSizew += child.Width;
-                        }
-                        else if (child.MinWidth > 0)
-                            currentSizew += child.Width;
-
-                    }
-                    else
-                        currentSizew = availableSize.Width;
-
-                    if (double.IsInfinity(availableSize.Height) || availableSize.Height == 0)
-                    {
-                        if (child.Height > 0)
-                        {
-                            if (currentSizeh < child.Height)
-                                currentSizeh = child.Height;
-                        }
-                        else if (child.MinHeight > 0)
-                            currentSizeh = child.MinHeight;
-                    }
-                    else
-                        currentSizeh = availableSize.Height;
-                    child.Measure(new Size(currentSizew, currentSizeh));
-                }
-
-                if (double.IsInfinity(availableSize.Width))
-                {
-                    currentSizew += (counts - 1) * Space + Padding.Left + Padding.Right;
-                }
+                if (!double.IsNaN(item.Width))
+                    tw -= (item.Width + item.Margin.Left + item.Margin.Right);
             }
-            else
+            if (this.InternalChildren.Count > 0)
+                cw = tw / this.InternalChildren.Count;
+            foreach (FrameworkElement item in this.InternalChildren)
             {
-                foreach (FrameworkElement child in this.InternalChildren)
-                {
-                    if (double.IsInfinity(availableSize.Height) || availableSize.Height == 0)
-                    {
-                        if (child.Height > 0)
-                        {
-                            currentSizeh += child.Height;
-                        }
-                        else if (child.MinHeight > 0)
-                            currentSizeh += child.Height;
-
-                    }
-                    else
-                        currentSizeh = availableSize.Height;
-
-                    if (double.IsInfinity(availableSize.Width) || availableSize.Width == 0)
-                    {
-                        if (child.Width > 0)
-                        {
-                            if (currentSizew < child.Width)
-                                currentSizew = child.Width;
-                        }
-                        else if (child.MinWidth > 0)
-                            currentSizew = child.MinWidth;
-                    }
-                    else
-                        currentSizew = availableSize.Width;
-                    child.Measure(new Size(currentSizew, currentSizeh));
-                }
-                if (double.IsInfinity(availableSize.Height))
-                    currentSizeh += (counts - 1) * Space + Padding.Top + Padding.Bottom;
+                if (double.IsNaN(item.Width))
+                    item.Measure(new Size(cw, availableSize.Height));
+                else
+                    item.Measure(new Size(item.Width + item.Margin.Left + item.Margin.Right, availableSize.Height));
             }
-            return new Size(currentSizew, currentSizeh);
+            return availableSize;
         }
 
         protected override Size ArrangeOverride(Size finalSize)
         {
-            var count = InternalChildren.Count;
-            if (Orientation == Orientation.Horizontal)
+            double xpos = 0;
+            double cw = 0;
+            double tw = finalSize.Width;
+            int itemCnt = 0;
+            foreach (FrameworkElement item in this.InternalChildren)
             {
-                var w = (finalSize.Width - Space * (count - 1) - Padding.Left - Padding.Right) / count;              
-                for (int i = 0; i < InternalChildren.Count; i++)
-                {
-                    var child = InternalChildren[i];
-                    var rh = finalSize.Height - Padding.Top - Padding.Bottom;
-                    if (rh < 0) rh = 0;
-                    if (w < 0) w = 0;
-                    child.Arrange(new Rect(i * (w + Space) + Padding.Left, Padding.Top, w, rh));
-                   
-                }
-               
+                if (!double.IsNaN(item.Width))
+                    tw -= item.DesiredSize.Width;
+                else
+                    itemCnt++;
             }
-            else
+            if (this.InternalChildren.Count > 0)
+                cw = tw / itemCnt;
+
+            foreach (FrameworkElement item in this.InternalChildren)
             {
-                var h = (finalSize.Height - Space * (count - 1) - Padding.Top - Padding.Bottom) / count;
-                for (int i = 0; i < InternalChildren.Count; i++)
-                {
-                    var child = InternalChildren[i];
-                    var rw = finalSize.Width - Padding.Left - Padding.Right;
-                    if (rw < 0) rw = 0;
-                    if (h < 0) h = 0;
-                    child.Arrange(new Rect(Padding.Left, i * (h + Space) + Padding.Top, rw, h));
-                }
+                double w = item.DesiredSize.Width;
+                if (double.IsNaN(item.Width))
+                    w = cw;
+                var posRect = new Rect(xpos, 0, w, item.DesiredSize.Height);
+                Console.WriteLine($"item: {item} posRect: {posRect}");
+                item.Arrange(posRect);
+                xpos += w;
             }
             return finalSize;
         }
 
-        private Pen borderPen = null;
+        //private Pen borderPen = null;
         protected override void OnRender(DrawingContext dc)
         {
             if (this.BorderThickness < 0) this.BorderThickness = 0;
