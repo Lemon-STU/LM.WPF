@@ -63,7 +63,7 @@ namespace LM.WPF.Controls
 
         // Using a DependencyProperty as the backing store for Space.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SpaceProperty =
-            DependencyProperty.Register("Space", typeof(double), typeof(UniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Space", typeof(double), typeof(LMUniformStackPanel), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         protected override Size MeasureOverride(Size availableSize)

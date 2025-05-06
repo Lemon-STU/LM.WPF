@@ -78,9 +78,6 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UniformStackPanelWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="Common\DrawingContextExtension.cs" />
     <Compile Include="Common\RenderHelper.cs" />
     <Compile Include="Controls\Layout\LMBorder.cs" />
