@@ -1,4 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+<ItemGroup>
+   <Reference Include="DynamicExpresso.Core, Version=2.16.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.2.16.1\lib\netstandard2.0\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -81,7 +93,6 @@
     <Compile Include="Common\DrawingContextExtension.cs" />
     <Compile Include="Common\RenderHelper.cs" />
     <Compile Include="Controls\Layout\LMBorder.cs" />
-    <Compile Include="Controls\Layout\LMStackPanel.cs" />
     <Compile Include="Controls\LMCircularIndicator.cs" />
     <Compile Include="Controls\LMCircularProgress.cs" />
     <Compile Include="Controls\LMCommonText.cs" />
@@ -90,7 +101,7 @@
     <Compile Include="Controls\LMNetStatus.cs" />
     <Compile Include="Controls\LMNumericUpDown.cs" />
     <Compile Include="Controls\LMSprite.cs" />
-    <Compile Include="Controls\LMUniformStackPanel.cs" />
+    <Compile Include="Controls\Layout\LMUniformStackPanel.cs" />
     <Compile Include="Controls\LMBackgroundMediaElement.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="Converter\IndentConverter.cs" />
@@ -133,4 +144,4 @@
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project>
+</Project> -->

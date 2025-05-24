@@ -109,7 +109,6 @@ namespace LM.WPF.Controls
                 if (double.IsNaN(item.Width))
                     w = cw;
                 var posRect = new Rect(xpos, 0, w, item.DesiredSize.Height);
-                Console.WriteLine($"item: {item} posRect: {posRect}");
                 item.Arrange(posRect);
                 xpos += w;
             }

@@ -1,0 +1,15 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+	    <OutDir>$(SolutionDir)\bin</OutDir>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Company>Lemon</Company>
+        <Version>2.0.1.1</Version>
+        <LangVersion>preview</LangVersion>
+
+		<BuildRoot>$(MSBuildThisFileDirectory)intermediate\</BuildRoot>
+        <BaseIntermediateOutputPath>$(BuildRoot)\$(MSBuildProjectName)\$(Configuration)\</BaseIntermediateOutputPath>
+	</PropertyGroup>
+</Project>
