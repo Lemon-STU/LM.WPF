@@ -4,9 +4,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 <ItemGroup>
-   <Reference Include="DynamicExpresso.Core, Version=2.16.1.0, Culture=neutral, processorArchitecture=MSIL">
+   <!--<Reference Include="DynamicExpresso.Core, Version=2.16.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DynamicExpresso.Core.2.16.1\lib\netstandard2.0\DynamicExpresso.Core.dll</HintPath>
-    </Reference>
+    </Reference>-->
   </ItemGroup>
 </Project>
 
